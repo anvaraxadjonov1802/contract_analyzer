@@ -178,7 +178,7 @@ if st.session_state.analysis_done:
                 <iframe 
                     src="data:application/pdf;base64,{pdf_preview}" 
                     width="100%" 
-                    height="720" 
+                    height="700" 
                     style="border:1px solid #e2e8f0; border-radius:12px; background:white;">
                 </iframe>
                 ''',
