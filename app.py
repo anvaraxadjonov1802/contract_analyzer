@@ -160,17 +160,13 @@ if st.session_state.analysis_done:
         c3.metric("📅 Dates", len(critical_dates))
 
         # Risk score card
-        # app.py ichida risk score qismi (taxminan 160-qatorlar)
-
         score_color = "#22c55e" if level == "Low" else "#f59e0b" if level == "Medium" else "#ef4444"
-
+        score_bg = "#dcfce7" if level == "Low" else "#fef3c7" if level == "Medium" else "#fee2e2"
         st.markdown(f"""
-        <div class="panel-card" style="text-align: center;">
-            <p class="risk-label">Risk Assessment</p>
-            <div class="risk-circle" style="border-color: {score_color}44; color: {score_color};">
-                <div class="risk-value">{score}</div>
-                <div style="font-size: 0.9rem; font-weight: 600;">{level.upper()}</div>
-            </div>
+        <div class="risk-score-card" style="border-left: 4px solid {score_color}; background: {score_bg};">
+            <div class="risk-score-label">Overall Risk Score</div>
+            <div class="risk-score-value" style="color: {score_color};">{score}<span class="risk-score-max">/100</span></div>
+            <div class="risk-level-badge" style="background:{score_color}; color: white;">{level.upper()} RISK</div>
         </div>
         """, unsafe_allow_html=True)
         st.progress(score / 100)
